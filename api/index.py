@@ -1,4 +1,5 @@
 from http.server import BaseHTTPRequestHandler
+from datetime import datetime, timezone
 
 
 class handler(BaseHTTPRequestHandler):
@@ -6,6 +7,6 @@ class handler(BaseHTTPRequestHandler):
         self.send_response(200)
         self.send_header('Content-type','image/svg+xml')
         self.end_headers()
-        message = f'<svg width="850" height="100" fill="none" xmlns="http://www.w3.org/2000/svg"><style>.header {{font: 600 18px "Segoe UI", Ubuntu, Sans-Serif; fill: #fe428e; animation: fadeInAnimation 0.8s ease-in-out forwards;\}}</style><text class="header" x="5" y="20">Hello {self.headers["x-real-ip"]}!</text><text class="header" x="5" y="40">You are using {self.headers["User-Agent"]}.</text><text class="header" x="5" y="60">Thank you very much for visiting my Github profile.</text></svg>'
+        message = f'<svg width="850" height="100" fill="none" xmlns="http://www.w3.org/2000/svg"><style>.header {{font: 600 18px "Segoe UI", Ubuntu, Sans-Serif; fill: #fe428e; animation: fadeInAnimation 0.8s ease-in-out forwards;\}}</style><text class="header" x="5" y="20">Hello.. it is now {datetime.now(tz=timezone.utc()}</text><text class="header" x="5" y="50">Thank you very much for visiting my Github profile.</text></svg>'
         self.wfile.write(message.encode())
         return
