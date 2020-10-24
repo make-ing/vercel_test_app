@@ -1,3 +1,3 @@
 module.exports = async (req, res) => {
-  res.send(`req = ${req}`)
+  res.send(`Hello ${req.ip}`)
 }
