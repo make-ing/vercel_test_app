@@ -8,7 +8,7 @@ class handler(BaseHTTPRequestHandler):
         self.send_response(200)
         self.send_header('Content-type', 'image/svg+xml')
         self.end_headers()
-        dwg = svgwrite.Drawing(filename='sample.svg', size=("850px", "100px"))
+        dwg = svgwrite.Drawing(filename='sample.svg', size=("500px", "80px"))
         dwg.add(dwg.text(
             f"It is currently {datetime.now(tz=timezone.utc)}",
             insert=(5, 20),
